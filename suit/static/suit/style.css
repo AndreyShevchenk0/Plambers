@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+
+*{
+    margin: 0;  /* внешний отступ елем. */
+    padding: 0;  /* внутрин.отступ елемента */
+    font-family: 'Poppins','Times New Roman',sans-serif;
+}
+
+.container{
+    position: relative;  /* Относительное позиционирование */
+    padding: 100px;
+    min-height: 100vh;  /* Минимальная высота */
+}
+
+.container:before{
+    content: '';
+    position: absolute;  /* Абсолютное позиционирование */
+    top: 0;  /* Положение от верхнего края */
+    right: 0;  /* Положение от правого края */
+    width: 350px;  /* ширина блока */
+    height: 100%;  /* Высота блока  черногой полоси*/
+    background: #333;  /* Цвет фона */
+    z-index: -2;
+}
+
+.container:after{
+    content: 'Сантехнік';/* будет виведено */
+    position: absolute;
+    bottom: 0;  /* положение от нижнего края*/
+    left: 0;
+    font-size: 14vw;  /* Размер шрифта увеличения */
+    z-index: -2;
+    font-weight: 700;  /* Жирное начертание */
+    color: #000;
+    opacity: 0.07;  /* Полупрозрачность элемента */
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;  /* Распределенное выравнивание */
+    align-items: center;  /* Центрировать элементы в поперечной оси */
+    padding: 30px 0;
+}
+
+header .logo{
+    font-weight: 700;
+    text-transform: uppercase;  /* Заглавные буквы */
+    color: #333;
+    text-decoration: none;  /* Убираем подчеркивание у ссылок */
+    font-size: 30px;
+}
+
+header .logo span{
+    color:#193ea5;
+    text-transform: capitalize;
+}
+
+header .logo span2{
+    color: #b80808;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+}
+
+header ul li{
+    list-style: none;
+    margin: 0 20px;
+}
+
+header ul li a{
+    position: relative;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 4px 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+header ul li:nth-child(3) a,
+header ul li:nth-child(4) a{
+    color: #fff;
+}
+
+header ul li a:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #0845eb;
+    z-index: -1;  /*положение элемента и нижестоящих элемента*/
+    transition: 0.5s ease-in-out;
+}
+
+header ul li a:hover:before,
+header ul li a.active:before{
+    width: 40px;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.content .bannerText{
+    position: relative;
+    max-width: 500px;
+    margin-right: 50px;
+}
+
+.content .bannerText div{
+    display: none;
+}
+
+.content .bannerText div.active{
+    display: initial;
+}
+
+.content .bannerText h2{
+    font-size: 54px;
+    text-transform: uppercase;
+    font-family: 800;
+    line-height: 1.2em;  /*межстрочный интервал*/
+    color: #333;
+}
+
+.content .bannerText p{
+    font-size: 18px;
+    color: #333;
+    line-height: 1.8em;
+    margin: 20px 0;
+}
+
+.content .bannerText a{
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 1px;  /* интервал между символ.в елементе*/
+    font-size: 18px;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.content .bannerText a:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    background: #0845eb;
+    z-index: -1;  /* Отрицательные значения понижают приоритет */
+    transition: 0.5s ease-in-out;
+}
+
+.content .bannerText a:hover:before{
+    width: 100%;
+}
+
+.content .bannerImg{
+    position: relative;
+    width: 440px;
+    height: 440px;
+    background: #000;
+}
+
+.content .bannerImg img{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.content .bannerImg img.active{
+    opacity: 1;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;  /* Распределенное выравнивание */
+    align-items: center;  /* Центрировать элементы в поперечной оси */
+    padding: 50px 0;
+}
+.icons .sci,.icons .controls{
+    position: relative;
+    top: 1800px; /*иконки вниз сам напис. ********************************/
+    display: flex;
+}
+
+.icons .sci li{
+    list-style: none;
+    margin-right: 30px;
+}
+
+.icons .sci li img{
+    display: inline-block;
+    max-width: 24px;
+    transition: 0.5s ease-in-out;
+}
+
+.icons .sci li:hover img{
+    transform: translateY(-10px);
+}
+
+.icons .controls li{
+    list-style: none;
+    margin-left: 20px;
+    cursor: pointer;
+    filter: invert(1);
+    transition: 0.5s ease-in-out;
+}
+
+.icons .controls li:hover{
+    opacity: 0.5;
+}
+
+.menuIcon{
+    display: none;
+}
+
+@media (max-width: 992px){
+    .container{
+        padding: 20 50px;
+    }
+    .container:before{
+        display: none;
+    }
+    header{
+        padding: 0;
+    }
+    .icons .controls li{
+        filter: invert(0);
+
+    }
+    .content .bannerText h2{
+        font-size: 30px;
+    }
+    .content{
+        margin-top: 0;
+        flex-direction: column-reverse;
+    }
+    .content .bannerImg{
+        width: 100px;
+        height: 40vh;
+        margin: 20px 0;
+    }
+    .content .bannerText{
+        max-width: 100%;
+        padding-right: 0;
+    }
+    header ul{
+        display: none;
+        position: fixed;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        z-index: 10000;
+        padding: 100px 0;
+    }
+    header.active ul{
+        display: initial;
+    }
+    header ul li{
+        padding: 20px;
+        text-align: center;
+    }
+    header ul li a{
+        color: #333 !important;
+        font-size: 36px;
+    }
+    header ul li a:hover:before,
+    header ul li a.active:before{
+        width: 100%;
+    }
+    .menuIcon{
+        display: initial;
+        position: fixed;
+        right: 50px;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 100000;
+        background: #fff url(menu.png);
+        width: 34px;
+        height: 34px;
+        background-repeat: no-repeat;
+        background-position: 6px;
+    }
+}
+
+@media (amx-width: 767px){
+    .container{
+        padding: 20px 30px;
+    }
+    .menuIcon{
+        right: 30px;
+    }
+    .icons .controls li img{
+        max-width: 40px;
+    }
+}
+/****************************/
+/* мои тексти*/
+.xx{
+    position: relative;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.zz{
+    position: relative;
+    margin: 2%;
+    padding: 2%;
+    font-size: 2em;     /* em увеличивает текст в РАЗИ */
+    text-align: center;
+}
+
+/*****************/
+/*моя карусель*/
+.container2{
+    width: 100%;
+    top: 100px;  /* 100 px от верха */
+    display: flex;  /* контейнери в ряд по горизонтали*/
+    flex-wrap: wrap;
+    margin: 0px;
+    padding: 0;
+    justify-content: center;  /* у контейнеров нормальние отступи */
+    align-items: center;
+    min-height: 100vh;
+    background: #003e46;
+}
+
+.box{
+    margin: 25px;    /* если 0 все бокси слипнуться*/
+    position: relative;
+    width: 350px;  /* ширина бокса*/
+    height: 450px;  /* длинна бокса*/
+    background: #000;
+    box-shadow: 0 30px 30px rgba(0,0,0,.5);
+}
+
+.box .imgBx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.box .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.box:hover .imgBx img{
+    opacity: 0;
+}
+
+.box .content2{
+    position: absolute;
+    bottom: 20px;
+    left: 10%;
+    width: 80%;
+    height: 60px;
+    background: #fff;
+    transition: 0.5s;
+    overflow: hidden;
+
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.box:hover .content2{
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.box .content2 h3{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.box .content2 p{
+    margin: 10px 0 0;
+    padding: 0;
+    opacity: 0;
+    line-height: 1.2em;
+    transition: 0.5s;
+    text-align: justify;
+}
+
+.box:hover .content2 p{
+    opacity: 1;
+    transition-delay: 0.5s;
+}
+/*****************/
+
+
+  /* Footer */
+.footer{
+    padding: 10px;
+    margin: 0;
+    position: relative;
+    /*top: 20px;/* отталкиваемся от верхнего блока на 20 px*/
+    text-align: center;
+    background: #ddd;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;  /* Распределенное выравнивание */
+    align-items: center;  /* Центрировать элементы в поперечной оси */
+    padding: 50px 0;
+}
+.icons .sci,.icons .controls{
+    position: relative;
+    top: 0px; /*иконки вниз сам напис. */
+    display: flex;
+}
+
+.icons .sci li{
+    list-style: none;
+    margin-right: 30px;
+}
+
+.icons .sci li img{
+    display: inline-block;
+    max-width: 24px;
+    transition: 0.5s ease-in-out;
+}
+
+.icons .sci li:hover img{
+    transform: translateY(-10px);
+}
+
+.icons .controls li{
+    list-style: none;
+    margin-left: 20px;
+    cursor: pointer;
+    filter: invert(1);
+    transition: 0.5s ease-in-out;
+}
+
+.icons .controls li:hover{
+    opacity: 0.5;
+}
+
+.zz p{
+    text-align: justify;  /* вировняли текст в параграфе по отступам от краев */
+}
