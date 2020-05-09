@@ -21,5 +21,4 @@ from suit.views import index
 urlpatterns = [
     path('', include('suit.urls')),
     path('admin/', admin.site.urls),
-    #path('', index),
 ]
