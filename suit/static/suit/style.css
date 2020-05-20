@@ -28,7 +28,7 @@
     position: absolute;
     bottom: 0;  /* положение от нижнего края*/
     left: 0;
-    font-size: 14vw;  /* Размер шрифта увеличения */
+    font-size: 12vw;  /* Размер шрифта увеличения */
     z-index: -2;
     font-weight: 700;  /* Жирное начертание */
     color: #000;
@@ -312,6 +312,55 @@ header ul li a.active:before{
         max-width: 40px;
     }
 }
+
+/***************************/
+/* моя крутилка LOGO */
+svg{
+    width: 0;
+    height: 0;
+}
+
+.loader{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    filter: url(#gooey);
+}
+
+.loader span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    animation: animate 4s ease-in-out infinite;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+.loader span:before{    /* делаем квадрат и превращаем в круг */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 20%);  /* незнаю */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;  /* закругляет угли на 50% у квадрата */
+    box-shadow: 0 0 30px #03a9f4;
+    background: linear-gradient(#fce4ec, #03a9f4);
+}
+ /* начинает крутиться на 360 градусов по кругу */
+@keyframes animate{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    50%,100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
 /****************************/
 /* мои тексти*/
 .xx{
@@ -319,14 +368,23 @@ header ul li a.active:before{
     margin: 5px;
     padding: 5px;
     text-align: center;
+    color: #4db8ff;
 }
 
 .zz{
     position: relative;
-    margin: 2%;
-    padding: 2%;
+    margin: 6%;
+    padding: 0;
     font-size: 2em;     /* em увеличивает текст в РАЗИ */
     text-align: center;
+}
+
+.zz h3{
+    color: #4db8ff;
+}
+
+.zz p{
+    text-align: justify;  /* вировняли текст в параграфе по отступам от краев */
 }
 
 /*****************/
@@ -409,6 +467,7 @@ header ul li a.active:before{
     line-height: 1.2em;
     transition: 0.5s;
     text-align: justify;
+    font-size: 1.3em;
 }
 
 .box:hover .content2 p{
@@ -465,8 +524,4 @@ header ul li a.active:before{
 
 .icons .controls li:hover{
     opacity: 0.5;
-}
-
-.zz p{
-    text-align: justify;  /* вировняли текст в параграфе по отступам от краев */
 }
