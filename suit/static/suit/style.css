@@ -167,8 +167,8 @@ header ul li a.active:before{
 
 .content .bannerImg{
     position: relative;
-    width: 440px;
-    height: 440px;
+    width: 500px;/*440*/
+    height: 500px;/*440*/
     background: #000;
 }
 
